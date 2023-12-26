@@ -1,8 +1,6 @@
 package org.app;
 
 import java.util.List;
-import org.application.service.StorageService;
-import org.application.service.impl.StorageServiceImpl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,9 +15,6 @@ public class Main {
     private static final String REQUIRED_INPUT = "default@input.data";
 
     public static void main(String[] args) {
-        StorageService service = new StorageServiceImpl();
-        service.addNewMarker(".T5pZmf");
-
         System.setProperty("webdriver.chrome.driver",
                 "drivers\\chromedriver_win32\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -38,9 +33,9 @@ public class Main {
         markAllIsOk(elements.get(9));
         markAllIsOk(elements.get(10));
         markAllIsOk(elements.get(11));
-//        WebElement sendButton = driver.findElement(By.cssSelector(SEND_BUTTON_CLASS));
-//        sendButton.click();
-//        driver.close();
+        WebElement sendButton = driver.findElement(By.cssSelector(SEND_BUTTON_CLASS));
+        sendButton.click();
+        driver.close();
     }
 
     private static void markAllIsOk(WebElement webElement) {
